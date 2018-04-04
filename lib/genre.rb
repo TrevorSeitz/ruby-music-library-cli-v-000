@@ -30,7 +30,7 @@ class Genre
     if !@songs.include?(song)
       @songs << song
     end
-
+    
     if song.genre == nil || song.genre == ''
       song.genre = self
       artist.genre = self

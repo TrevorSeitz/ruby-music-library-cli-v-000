@@ -65,6 +65,7 @@ class MusicLibraryController
         puts list
       end
     end
+
   end
 
   def list_songs_by_artist
@@ -74,7 +75,6 @@ class MusicLibraryController
 
     puts "Please enter the name of an artist:"
     artist = gets.chomp
-
     Song.all.each do |song|
       if song.artist.name == artist
         if !@artist_songs.include?(song.name)
@@ -89,7 +89,6 @@ class MusicLibraryController
       list = "#{count}. #{song.name} - #{song.genre.name}"
       puts list
     end
-
   end
 
   def list_artists
@@ -115,8 +114,7 @@ class MusicLibraryController
     count = 0
 
     puts "Please enter the name of a genre:"
-    genre = gets.chomp
-
+    genre = gets.chomp.downcase
     Song.all.each do |song|
       if song.genre.name == genre
         if !genre_songs.include?(song.name)
